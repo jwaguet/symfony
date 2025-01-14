@@ -31,6 +31,9 @@ class DnsMockTest extends TestCase
         $this->assertTrue(DnsMock::checkdnsrr('example.com', 'a'));
         $this->assertTrue(DnsMock::checkdnsrr('example.com', 'any'));
         $this->assertFalse(DnsMock::checkdnsrr('foobar.com', 'ANY'));
+
+        DnsMock::withMockedHosts(['example.com' => ['type' => 'CAA','flags' => 0,'tag' => 'issue','value' => 'example.com']]);
+        $this->assertTrue(DnsMock::checkdnsrr('example.com', 'CAA'));
     }
 
     public function testGetmxrr()
