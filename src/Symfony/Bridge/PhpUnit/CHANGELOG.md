@@ -5,6 +5,7 @@ CHANGELOG
 ---
 
  * Enable configuring clock and DNS mock namespaces with attributes
+ * Added support for CAA record type in DnsMock for improved DNS mocking capabilities1
 
 7.2
 ---
